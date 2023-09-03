@@ -50,7 +50,7 @@ const Submit = () => {
                     <label  className='text-xl mb-2'>Description</label>
                     <input type="text" name="desc" required onChange={handleChange} value={inputData.desc} placeholder='Describe the issue..' className='w-full p-5 rounded-md border-2 '/><br/>
                     <label className='text-xl mb-2'>Severity</label>
-                    <select name="step" required onChange={handleChange} defaultValue={inputData.step} className="p-5" >
+                    <select name="step" required onChange={handleChange} defaultValue={inputData.step} className="p-5 mb-5" >
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
