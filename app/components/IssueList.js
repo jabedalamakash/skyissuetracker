@@ -7,7 +7,7 @@ import { BiTime, BiUser} from 'react-icons/bi';
 
 
 const IssueList = ({data,handleDelete}) => {
-    console.log(data)
+    // console.log(data)
     const [currentStatus,setCurrentStatus]=useState(true);
 
     const handlefind=()=>{
