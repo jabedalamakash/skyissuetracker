@@ -1,12 +1,24 @@
 "use client"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiTime, BiUser} from 'react-icons/bi';
 
 
 
 
 const IssueList = ({data,handleDelete}) => {
+    console.log(data)
+    const [currentStatus,setCurrentStatus]=useState(true);
+
+    const handlefind=()=>{
+        setCurrentStatus(false);
+
+    }
+
+
+
+   
+
 
 
     return (
@@ -18,9 +30,9 @@ const IssueList = ({data,handleDelete}) => {
                 
                   <div >
 
-                    <p>Issue ID: {data.id}  </p>
+                    <p className='mb-5'>Issue ID: {data.id}  </p>
                    
-                    <p> Status :opne/closed</p>
+                    <>{currentStatus ? <button className='px-5 py-3 rounded-xl text-white bg-green-600'>Open</button> :<button className='px-5 py-3 rounded-xl text-white bg-red-600' >Closed</button>}</>
                    
                     <p className='my-5 text-xl font-bold'>{data.inputData.desc}</p>
 
@@ -35,7 +47,7 @@ const IssueList = ({data,handleDelete}) => {
                         
                 </div>
                     <div className='flex gap-6'>
-                        <button className='px-3 w-full sm:w-[10%] rounded-md py-4 bg-[#F0AD4E] text-white ' >Close</button>
+                        <button onClick={()=>handlefind()} className='px-3 w-full sm:w-[10%] rounded-md py-4 bg-[#F0AD4E] text-white ' >Close</button>
                         <button onClick={()=>{handleDelete(data.id)}} className='px-3 w-full sm:w-[10%] rounded-md py-4 bg-[#D9534F] text-white ' >Delete</button>
                         
                     </div> 
