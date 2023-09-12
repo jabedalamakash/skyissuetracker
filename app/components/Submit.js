@@ -34,17 +34,17 @@ const Submit = () => {
     }
 
     // get item
-    useEffect(()=>{
-        const data=localStorage.getItem('issues');
-        setstoreData(JSON.parse(data))
+    // useEffect(()=>{
+    //     const data=localStorage.getItem('issues');
+    //     setstoreData(JSON.parse(data))
 
-     },[])
+    //  },[])
 
-     // localStorage setItem
-     useEffect(()=>{
-        localStorage.setItem('issues', JSON.stringify(storeData));
+    //  // localStorage setItem
+    //  useEffect(()=>{
+    //     localStorage.setItem('issues', JSON.stringify(storeData));
 
-     },[storeData])
+    //  },[storeData])
 
 
 
