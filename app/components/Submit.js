@@ -1,21 +1,20 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import IssueList from './IssueList';
 import { v4 as uuidv4 } from 'uuid';
-
 
 
 const Submit = () => {
 
 
-    const[inputData,setinputData]=useState({
+    const [inputData,setinputData]=useState({
         desc:"",
         step:"low",
         assign:""
 
     });
     
-    const[storeData,setstoreData]=useState([]);
+    const [storeData,setstoreData]=useState([]);
 
     const handleChange=(e) => {
     setinputData({...inputData,[e.target.name]:e.target.value})}
@@ -30,7 +29,24 @@ const Submit = () => {
         assign:""
 
         })
+       
+        
     }
+
+    // get item
+    useEffect(()=>{
+        const data=localStorage.getItem('issues');
+        setstoreData(JSON.parse(data))
+
+     },[])
+
+     // localStorage setItem
+     useEffect(()=>{
+        localStorage.setItem('issues', JSON.stringify(storeData));
+
+     },[storeData])
+
+
 
   const handleDelete=(id) => {
     const newData =storeData.filter((item)=> item.id != id) ;
